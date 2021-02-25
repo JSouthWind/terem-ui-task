@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/terem-ui-task/static/js/main.ca26d4a7.chunk.js",
-    "main.js.map": "/terem-ui-task/static/js/main.ca26d4a7.chunk.js.map",
+    "main.js": "/terem-ui-task/static/js/main.ac1fb274.chunk.js",
+    "main.js.map": "/terem-ui-task/static/js/main.ac1fb274.chunk.js.map",
     "runtime-main.js": "/terem-ui-task/static/js/runtime-main.a1f59313.js",
     "runtime-main.js.map": "/terem-ui-task/static/js/runtime-main.a1f59313.js.map",
     "static/js/2.7ad87ed6.chunk.js": "/terem-ui-task/static/js/2.7ad87ed6.chunk.js",
@@ -14,6 +14,6 @@
   "entrypoints": [
     "static/js/runtime-main.a1f59313.js",
     "static/js/2.7ad87ed6.chunk.js",
-    "static/js/main.ca26d4a7.chunk.js"
+    "static/js/main.ac1fb274.chunk.js"
   ]
 }
