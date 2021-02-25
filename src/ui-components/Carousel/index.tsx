@@ -49,7 +49,7 @@ export function Carousel({ items }: { items: ReactElement[] }) {
     if (itemRef.current?.clientWidth) {
       setScrollWidth(itemRef.current?.clientWidth);
     }
-  }, []);
+  }, [items]);
 
   function scrollContainerBy(distance: number) {
     if (!container.current) {
