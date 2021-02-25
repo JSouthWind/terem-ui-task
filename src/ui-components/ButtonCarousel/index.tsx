@@ -13,6 +13,9 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    "&:focus": {
+      outline: "transparent",
+    },
   },
   arrowBack: {
     left: 0,
