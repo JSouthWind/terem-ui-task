@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, ReactElement } from "react";
 import debounce from "lodash.debounce";
 import { makeStyles, Theme } from "@material-ui/core";
 import { ButtonCarousel } from "../ButtonCarousel";
@@ -23,13 +23,23 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export function Carousel({ items }: { items: any[] }) {
+export function Carousel({ items }: { items: ReactElement[] }) {
   const classes = useStyles();
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [scrollWidth, setScrollWidth] = useState(300);
   const container = useRef<HTMLDivElement>(null);
   const itemRef = useRef<HTMLDivElement>(null);
+
+  function checkForScrollPosition() {
+    if (container.current === null) {
+      return;
+    }
+    const { scrollLeft, scrollWidth: width, clientWidth } = container.current;
+    setCanScrollLeft(scrollLeft > 0);
+    setCanScrollRight(scrollLeft !== width - clientWidth);
+  }
+
   const debounceCheckForScrollPosition = debounce(checkForScrollPosition, 200, {
     leading: true,
   });
@@ -41,20 +51,14 @@ export function Carousel({ items }: { items: any[] }) {
     }
   }, []);
 
-  function checkForScrollPosition() {
-    if (container.current === null) {
-      return;
-    }
-    const { scrollLeft, scrollWidth, clientWidth } = container.current;
-    setCanScrollLeft(scrollLeft > 0);
-    setCanScrollRight(scrollLeft !== scrollWidth - clientWidth);
-  }
-
   function scrollContainerBy(distance: number) {
     if (!container.current) {
       return;
     }
-    (container.current as any).scrollBy({ left: distance, behavior: "smooth" });
+    (container.current as HTMLDivElement).scrollBy({
+      left: distance,
+      behavior: "smooth",
+    });
   }
 
   function handleScrollButtonClick(left: boolean) {
@@ -64,7 +68,7 @@ export function Carousel({ items }: { items: any[] }) {
   return (
     <div className={classes.root}>
       <ButtonCarousel
-        left={true}
+        left
         show={canScrollLeft}
         onClick={handleScrollButtonClick(true)}
       />
@@ -74,8 +78,12 @@ export function Carousel({ items }: { items: any[] }) {
         onScroll={debounceCheckForScrollPosition}
         ref={container}
       >
-        {items.map((Item, ind) => (
-          <div className={classes.item} ref={itemRef} key={ind}>
+        {items.map((Item) => (
+          <div
+            className={classes.item}
+            ref={itemRef}
+            key={`${Item.props.locaion}-${Item.props.title}`}
+          >
             {Item}
           </div>
         ))}

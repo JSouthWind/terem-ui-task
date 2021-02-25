@@ -17,7 +17,7 @@ export function Search() {
     <Autocomplete
       fullWidth={false}
       freeSolo
-      id='search-input'
+      id="search-input"
       disableClearable
       options={popular.map((item) => item.title)}
       filterOptions={() => []}
@@ -31,12 +31,13 @@ export function Search() {
       renderInput={(params) => {
         return (
           <TextField
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...params}
             className={classes.input}
-            size='small'
-            label='Search for...'
-            margin='normal'
-            variant='outlined'
+            size="small"
+            label="Search for..."
+            margin="normal"
+            variant="outlined"
             InputProps={{ ...params.InputProps, type: "search" }}
           />
         );

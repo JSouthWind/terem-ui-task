@@ -35,6 +35,9 @@ export function ButtonCarousel({
 
   return show ? (
     <div
+      role="button"
+      tabIndex={left ? 0 : 1}
+      onKeyDown={onClick}
       onClick={onClick}
       className={`${classes.arrow} ${
         left ? classes.arrowBack : classes.arrowForward

@@ -51,7 +51,7 @@ export function CardBase({
           <Typography>{title}</Typography>
           <div className={classes.flexContainer}>
             <LocationOnIcon className={classes.icon} />
-            <Typography variant='body2'>{location}</Typography>
+            <Typography variant="body2">{location}</Typography>
           </div>
         </CardContent>
       </Paper>

@@ -16,7 +16,7 @@ export function Featured() {
   const { featured } = useAppContext();
 
   return (
-    <SectionContainer biggerTopMargin title='Featured'>
+    <SectionContainer biggerTopMargin title="Featured">
       <ResponsiveMasonry
         columnsCountBreakPoints={{ 350: 1, 496: 2, 750: 3, 900: 4 }}
       >

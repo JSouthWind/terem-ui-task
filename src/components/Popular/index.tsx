@@ -6,7 +6,7 @@ export function Popular() {
   const { filteredPopular } = useAppContext();
 
   return (
-    <SectionContainer title='Popular around you'>
+    <SectionContainer title="Popular around you">
       <Carousel
         items={filteredPopular.map(({ img, location, title }: CardItemType) => (
           <CardBase

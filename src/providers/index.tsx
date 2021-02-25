@@ -21,13 +21,13 @@ export const useAppContext = () => useContext(AppContext);
 export function AppContextProvider({ children }: { children: JSX.Element }) {
   const [filteredPopular, setFilteredPopular] = useState<CardItemType[]>([]);
   const { data: featured, loading, error } = useFetch(
-    "http://demo3136867.mockable.io/featured"
+    "https://demo3136867.mockable.io/featured"
   );
   const {
     data: popular,
     loading: loadingPopular,
     error: loadingError,
-  } = useFetch("http://demo3136867.mockable.io/featured");
+  } = useFetch("https://demo3136867.mockable.io/featured");
 
   useEffect(() => {
     if (popular.length) {

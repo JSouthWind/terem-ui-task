@@ -22,7 +22,7 @@ export function Main() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Container maxWidth='md'>
+      <Container maxWidth="md">
         <Search />
         <div className={classes.container}>
           <Popular />
